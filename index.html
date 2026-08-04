@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheikh Mustafeedh Ahmed | Game Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Sheikh Mustafeedh Ahmed - Game Developer specializing in Unity and Unreal Engine 5">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Three.js Canvas Background -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="#hero">SMA</a>
+        </div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#games">Games</a>
+            <a href="#projects">Projects</a>
+            <a href="#plugin">Plugin</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#about">About</a>
+        <a href="#games">Games</a>
+        <a href="#projects">Projects</a>
+        <a href="#plugin">Plugin</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <p class="hero-greeting">Hello, I'm</p>
+            <h1 class="hero-name">Sheikh Mustafeedh Ahmed</h1>
+            <p class="hero-title">Gameplay Systems Programmer <span class="separator">|</span> Unreal Engine 5 & Unity</p>
+            <p class="hero-description">Passionate about creating immersive gaming experiences with innovative mechanics and stunning visuals.</p>
+            <div class="hero-cta">
+                <a href="#games" class="btn btn-primary">View My Games</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+            <div class="hero-social">
+                <a href="https://www.linkedin.com/in/sheikh-mustafeedh-ahmed/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/SkMustafeedh" target="_blank" rel="noopener" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://sheikh-mustafeedh-ahmed.itch.io" target="_blank" rel="noopener" aria-label="itch.io">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.13 1.338C2.08 1.96.02 3.103 0 3.6v.756c0 1.0.67 2.148 1.766 2.148.72 0 1.324-.38 1.676-.764.376.38.955.764 1.675.764.72 0 1.323-.38 1.675-.764.376.38.955.764 1.675.764.72 0 1.324-.38 1.676-.764.375.38.954.764 1.674.764.72 0 1.324-.38 1.676-.764.376.38.955.764 1.675.764.72 0 1.324-.38 1.676-.764.375.38.954.764 1.674.764.72 0 1.324-.38 1.676-.764.376.38.955.764 1.675.764.72 0 1.323-.38 1.675-.764.376.38.955.764 1.675.764 1.1 0 1.767-1.148 1.767-2.148V3.6c-.022-.497-2.082-1.64-3.13-2.262a22.498 22.498 0 0 0-14.74 0zm6.86 7.894c-.575 0-1.041-.466-1.041-1.041s.466-1.042 1.041-1.042 1.042.467 1.042 1.042-.467 1.041-1.042 1.041zm5.023 0c-.576 0-1.042-.466-1.042-1.041s.466-1.042 1.042-1.042 1.041.467 1.041 1.042-.466 1.041-1.041 1.041zm5.4 2.063c-1.058.583-2.104 1.12-2.104 1.12s.12.717.383 1.58c.215.702.51 1.263.882 1.688.45.51 1.02.86 1.682 1.023.154.038.29.066.414.086-.328.475-.712.868-1.15 1.164-1.06.713-2.356.964-3.49.853-1.35-.133-2.484-.736-3.453-1.527-.312.362-.664.693-1.056.974-.588.422-1.275.726-2.053.802-1.52.148-2.796-.376-3.745-1.434-.478-.532-.864-1.187-1.167-1.94.376-.425.67-1.027.88-1.726.262-.862.38-1.63.38-1.63s1.045-.537 2.103-1.12c-.576-.614-1.017-1.392-1.287-2.274-.424-1.383-.33-2.906.427-4.216.687-1.186 1.83-2.09 3.162-2.543 1.058-.358 2.19-.45 3.276-.316.97.12 1.864.447 2.636.984.663-.46 1.378-.79 2.112-.974.644-.16 1.32-.22 2.01-.168.938.07 1.79.42 2.504 1.01.614-.276 1.28-.45 1.988-.508.51-.043 1.02-.02 1.516.082.56.116 1.08.36 1.512.72.432-.36.953-.604 1.512-.72.497-.102 1.007-.125 1.516-.082.71.058 1.376.232 1.988.508.714-.59 1.566-.94 2.504-1.01.69-.052 1.366.008 2.01.168.734.184 1.45.514 2.112.974.772-.537 1.666-.864 2.636-.984 1.086-.134 2.218-.042 3.276.316 1.332.452 2.475 1.357 3.162 2.543.757 1.31.851 2.833.427 4.216-.27.882-.711 1.66-1.287 2.274 1.058.583 2.104 1.12 2.104 1.12s.12-.768.38-1.63c.21-.699.504-1.301.88-1.726-.303-.753-.689-1.408-1.167-1.94-.95-.958-2.224-1.482-3.745-1.434-.778.076-1.465.38-2.053.802-.392.281-.744.612-1.056.974-.97-.791-2.103-1.394-3.453-1.527-1.134-.111-2.43.14-3.49.853-.438.296-.822.689-1.15 1.164.124-.02.26-.048.414-.086.662-.164 1.232-.513 1.682-1.023.372-.425.667-.986.882-1.688.263-.863.383-1.58.383-1.58s-1.046-.537-2.104-1.12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Gameplay Systems Programmer (MSc Game Development, Distinction) specializing in Unreal Engine 5, scalable gameplay architecture, procedural systems, and modular runtime frameworks using C++, C#, and Python. Experienced in developing custom vehicle physics, AI-driven gameplay systems, multiplayer features, and procedural generation workflows.</p>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                </svg>
+                            </div>
+                            <span>Unreal Engine 5</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                            </div>
+                            <span>Unity</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                            </div>
+                            <span>C++ • C# • Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                            </div>
+                            <span>Procedural Generation</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                                </svg>
+                            </div>
+                            <span>AI Systems • ML-Agents</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <span>Multiplayer Systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="games-section">
+        <div class="container">
+            <h2 class="section-title">My Games</h2>
+            <p class="section-subtitle">A collection of games I've developed across various genres and platforms.</p>
+            
+            <div class="games-grid">
+                <!-- Street King Demo -->
+                <div class="game-card" data-genre="racing">
+                    <div class="game-image">
+                        <img src="assets/images/street-king-demo.jpg" alt="Street King Demo" onerror="this.src='https://via.placeholder.com/600x400/6c63ff/ffffff?text=Street+King+Demo'">
+                        <div class="game-overlay">
+                            <button class="play-btn" data-video="https://www.youtube.com/embed/qjm2J9vpS9s" aria-label="Watch trailer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <span class="game-genre">Racing</span>
+                        <h3>Street King Demo</h3>
+                        <p>Modular open-world arcade racing with custom vehicle physics, spline-driven race framework, and police pursuit AI.</p>
+                        <div class="game-links">
+                            <a href="https://sheikh-mustafeedh-ahmed.itch.io/street-king-demo" target="_blank" rel="noopener" class="btn btn-small">Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent X -->
+                <div class="game-card" data-genre="shooter">
+                    <div class="game-image">
+                        <img src="assets/images/agent-x-training-facility.jpg" alt="Agent X: Training Facility" onerror="this.src='https://via.placeholder.com/600x400/6c63ff/ffffff?text=Agent+X'">
+                        <div class="game-overlay">
+                            <button class="play-btn" data-video="https://www.youtube.com/embed/_qOpgbtGoOA" aria-label="Watch trailer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <span class="game-genre">Shooter</span>
+                        <h3>Agent X: Training Facility</h3>
+                        <p>Third-person shooter with AI Perception-driven enemies, modular weapon systems, and grappling/wall-running mechanics.</p>
+                        <div class="game-links">
+                            <a href="https://sheikh-mustafeedh-ahmed.itch.io/agent-x-training-facility" target="_blank" rel="noopener" class="btn btn-small">Download</a>
+                            <a href="https://github.com/SheikhMustafeedhAhmed" target="_blank" rel="noopener" class="btn btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terranova Escape VR -->
+                <div class="game-card" data-genre="vr-survival">
+                    <div class="game-image">
+                        <img src="assets/images/terranova-escape-vr.jpg" alt="Terranova Escape VR" onerror="this.src='https://via.placeholder.com/600x400/6c63ff/ffffff?text=Terranova+VR'">
+                        <div class="game-overlay">
+                            <button class="play-btn" data-video="https://www.youtube.com/embed/7-6qtunNuQk" aria-label="Watch trailer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <span class="game-genre">VR Survival</span>
+                        <h3>Terranova Escape VR</h3>
+                        <p>VR escape room optimized for Quest 2 with stealth mechanics, timed objectives, and haptic interaction feedback.</p>
+                        <div class="game-links">
+                            <a href="https://sheikh-mustafeedh-ahmed.itch.io/terranova-escape" target="_blank" rel="noopener" class="btn btn-small">Download</a>
+                            <a href="https://github.com/PHOENIXNFS/Kingston-University-Survival-Stealth-VR-Game" target="_blank" rel="noopener" class="btn btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enola Holmes -->
+                <div class="game-card" data-genre="puzzle">
+                    <div class="game-image">
+                        <img src="assets/images/enola-holmes.jpg" alt="Enola Holmes" onerror="this.src='https://via.placeholder.com/600x400/6c63ff/ffffff?text=Enola+Holmes'">
+                        <div class="game-overlay">
+                            <button class="play-btn" data-video="https://www.youtube.com/embed/LH3tT0UiaL4" aria-label="Watch trailer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <span class="game-genre">Puzzle</span>
+                        <h3>Enola Holmes: Jack The Ripper</h3>
+                        <p>Game prototype featuring puzzle-solving and mystery investigation gameplay mechanics.</p>
+                        <div class="game-links">
+                            <a href="https://sheikh-mustafeedh-ahmed.itch.io/enola-holmes-and-the-mysterios" target="_blank" rel="noopener" class="btn btn-small">Download</a>
+                            <a href="https://github.com/PHOENIXNFS/Enola-Holmes-DSP" target="_blank" rel="noopener" class="btn btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Robomonks -->
+                <div class="game-card" data-genre="shooter">
+                    <div class="game-image">
+                        <img src="assets/images/robomonks.jpg" alt="Robomonks" onerror="this.src='https://via.placeholder.com/600x400/6c63ff/ffffff?text=Robomonks'">
+                        <div class="game-overlay">
+                            <button class="play-btn" data-video="https://www.youtube.com/embed/5wA9_bR2Yug" aria-label="Watch trailer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <span class="game-genre">Shooter</span>
+                        <h3>Robomonks</h3>
+                        <p>Post-apocalyptic co-op shooter with Photon multiplayer, Firebase persistence, and real-time voice chat.</p>
+                        <div class="game-links">
+                            <a href="https://sheikh-mustafeedh-ahmed.itch.io/robomonks" target="_blank" rel="noopener" class="btn btn-small">Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Xtreme Racing -->
+                <div class="game-card" data-genre="racing">
+                    <div class="game-image">
+                        <img src="assets/images/xtreme-racing.jpg" alt="Xtreme Racing EV Grand Prix" onerror="this.src='https://via.placeholder.com/600x400/6c63ff/ffffff?text=Xtreme+Racing'">
+                        <div class="game-overlay">
+                            <button class="play-btn" data-video="https://www.youtube.com/embed/4R5A8RSXIhU" aria-label="Watch trailer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <span class="game-genre">Racing</span>
+                        <h3>Xtreme Racing - EV Grand Prix</h3>
+                        <p>Racing game with ML-Agents AI achieving 95% of player lap times and imitation-learning pipeline.</p>
+                        <div class="game-links">
+                            <a href="https://sheikh-mustafeedh-ahmed.itch.io/xtreme-racing-ev-grand-prix" target="_blank" rel="noopener" class="btn btn-small">Download</a>
+                            <a href="https://github.com/PHOENIXNFS/MSC-Game-Development-Final-Project" target="_blank" rel="noopener" class="btn btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <p class="section-subtitle">Additional projects showcasing different technologies and skills.</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <path d="M9 3v18M15 3v18M3 9h18M3 15h18"></path>
+                        </svg>
+                    </div>
+                    <h3>Procedural Dungeon Generator</h3>
+                    <span class="project-tech">Python • Unity • CNN Autoencoders</span>
+                    <p>Prototyped a dungeon generation system using CNN autoencoders that generated diverse room layouts, integrating raw image outputs into Unity for procedural assembly.</p>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>Smart Resume Builder</h3>
+                    <span class="project-tech">OpenAI API • Web App</span>
+                    <p>Developed a Smart Resume Builder web app using OpenAI Assistants API for ATS-optimized resume and cover letter generation. Reduced response latency by 15%.</p>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>AI Q&A Chatbot</h3>
+                    <span class="project-tech">AI • Japanese Language • Live Feedback</span>
+                    <p>Designed an AI-powered question-answer chatbot with live feedback loop, native Japanese language support, and sub-500ms latency for recruiter evaluation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- City Generator Plugin Section -->
+    <section id="plugin" class="plugin-section">
+        <div class="container">
+            <h2 class="section-title">Procedural City Generator</h2>
+            <p class="section-subtitle">A powerful Unreal Engine 5 plugin for complete procedural city generation. 3 months of solo development.</p>
+            
+            <p class="plugin-description-full">The core world-building technology for Street King, my upcoming single-player narrative street racing game. Modular, scalable, and designed specifically for game development.</p>
+            
+            <div class="plugin-layout">
+                <div class="plugin-video">
+                    <div class="video-embed">
+                        <iframe 
+                            src="https://www.youtube.com/embed/MCKJ-4zYSaI" 
+                            title="City Generator Plugin Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <div class="plugin-features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Road System</h4>
+                            <p>Interactive road creation, editing, and automatic graph generation</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="16"></line>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Procedural Intersections</h4>
+                            <p>Automatic intersection solving for any road configuration</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 14l4-4 4 4 4-4 4 4"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Bridges & Tunnels</h4>
+                            <p>Auto bridge generation with pillars and tunnel creation</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Landscape Terraforming</h4>
+                            <p>Shared landscape modification for roads and structures</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>District & Buildings</h4>
+                            <p>District generation, lot subdivision, and modular procedural buildings</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Traffic System</h4>
+                            <p>Lane-aware traffic graph with lights and stop signs</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Editor Integration</h4>
+                            <p>Automatic editor setup and proper cleanup during regeneration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Have a question or want to collaborate? Feel free to reach out!</p>
+            
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/mdennaey" method="POST">
+                        <input type="hidden" name="_subject" value="New Portfolio Contact">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Send Message</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </form>
+                    <div id="form-status" class="form-status"></div>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>sheikhmustafeedh.ahmed@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <a href="https://www.linkedin.com/in/sheikh-mustafeedh-ahmed/" target="_blank" rel="noopener">Connect with me</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Twitter</h4>
+                            <a href="https://twitter.com/SkMustafeedh" target="_blank" rel="noopener">@SkMustafeedh</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3.13 1.338C2.08 1.96.02 3.103 0 3.6v.756c0 1.0.67 2.148 1.766 2.148.72 0 1.324-.38 1.676-.764.376.38.955.764 1.675.764.72 0 1.323-.38 1.675-.764.376.38.955.764 1.675.764.72 0 1.324-.38 1.676-.764.376.38.955.764 1.675.764.72 0 1.324-.38 1.676-.764.375.38.954.764 1.674.764.72 0 1.324-.38 1.676-.764.376.38.955.764 1.675.764 1.1 0 1.767-1.148 1.767-2.148V3.6c-.022-.497-2.082-1.64-3.13-2.262a22.498 22.498 0 0 0-14.74 0zm6.86 7.894c-.575 0-1.041-.466-1.041-1.041s.466-1.042 1.041-1.042 1.042.467 1.042 1.042-.467 1.041-1.042 1.041zm5.023 0c-.576 0-1.042-.466-1.042-1.041s.466-1.042 1.042-1.042 1.041.467 1.041 1.042-.466 1.041-1.041 1.041zm5.4 2.063c-1.058.583-2.104 1.12-2.104 1.12s.12.717.383 1.58c.215.702.51 1.263.882 1.688.45.51 1.02.86 1.682 1.023.154.038.29.066.414.086-.328.475-.712.868-1.15 1.164-1.06.713-2.356.964-3.49.853-1.35-.133-2.484-.736-3.453-1.527-.312.362-.664.693-1.056.974-.588.422-1.275.726-2.053.802-1.52.148-2.796-.376-3.745-1.434-.478-.532-.864-1.187-1.167-1.94.376-.425.67-1.027.88-1.726.262-.862.38-1.63.38-1.63s1.045-.537 2.103-1.12c-.576-.614-1.017-1.392-1.287-2.274-.424-1.383-.33-2.906.427-4.216.687-1.186 1.83-2.09 3.162-2.543 1.058-.358 2.19-.45 3.276-.316.97.12 1.864.447 2.636.984.663-.46 1.378-.79 2.112-.974.644-.16 1.32-.22 2.01-.168.938.07 1.79.42 2.504 1.01.614-.276 1.28-.45 1.988-.508.51-.043 1.02-.02 1.516.082.56.116 1.08.36 1.512.72.432-.36.953-.604 1.512-.72.497-.102 1.007-.125 1.516-.082.71.058 1.376.232 1.988.508.714-.59 1.566-.94 2.504-1.01.69-.052 1.366.008 2.01.168.734.184 1.45.514 2.112.974.772-.537 1.666-.864 2.636-.984 1.086-.134 2.218-.042 3.276.316 1.332.452 2.475 1.357 3.162 2.543.757 1.31.851 2.833.427 4.216-.27.882-.711 1.66-1.287 2.274 1.058.583 2.104 1.12 2.104 1.12s.12-.768.38-1.63c.21-.699.504-1.301.88-1.726-.303-.753-.689-1.408-1.287-1.94-.95-.958-2.224-1.482-3.745-1.434-.778.076-1.465.38-2.053.802-.392.281-.744.612-1.056.974-.97-.791-2.103-1.394-3.453-1.527-1.134-.111-2.43.14-3.49.853-.438.296-.822.689-1.15 1.164.124-.02.26-.048.414-.086.662-.164 1.232-.513 1.682-1.023.372-.425.667-.986.882-1.688.263-.863.383-1.58.383-1.58s-1.046-.537-2.104-1.12z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>itch.io</h4>
+                            <a href="https://sheikh-mustafeedh-ahmed.itch.io" target="_blank" rel="noopener">View all games</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Sheikh Mustafeedh Ahmed. All rights reserved.</p>
+                <p>Built with passion for game development.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="video-modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="video-container">
+                <iframe id="video-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/three-scene.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/contact-form.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
