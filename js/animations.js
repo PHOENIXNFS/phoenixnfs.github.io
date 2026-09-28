@@ -230,10 +230,10 @@ class ScrollAnimations {
     }
     
     pluginAnimations() {
-        gsap.to('.plugin-description', {
+        gsap.to('.plugin-description-full', {
             scrollTrigger: {
-                trigger: '.plugin-content',
-                start: 'top 80%',
+                trigger: '.plugin-description-full',
+                start: 'top 85%',
                 toggleActions: 'play none none none'
             },
             opacity: 1,
@@ -242,28 +242,28 @@ class ScrollAnimations {
             ease: 'power3.out'
         });
         
-        gsap.to('.feature-item', {
+        gsap.to('.plugin-video', {
             scrollTrigger: {
-                trigger: '.plugin-features',
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-            },
-            opacity: 1,
-            x: 0,
-            duration: 0.5,
-            stagger: 0.15,
-            ease: 'power3.out'
-        });
-        
-        gsap.to('.plugin-demo', {
-            scrollTrigger: {
-                trigger: '.plugin-demo',
-                start: 'top 80%',
+                trigger: '.plugin-layout',
+                start: 'top 85%',
                 toggleActions: 'play none none none'
             },
             opacity: 1,
             x: 0,
             duration: 0.8,
+            ease: 'power3.out'
+        });
+        
+        gsap.to('.plugin-features-grid .feature-item', {
+            scrollTrigger: {
+                trigger: '.plugin-features-grid',
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+            stagger: 0.1,
             ease: 'power3.out'
         });
     }
