@@ -172,10 +172,22 @@ class ScrollAnimations {
             ease: 'power3.out'
         });
         
-        // Plugin section
-        gsap.to('#plugin .section-title', {
+        // Tools sections
+        gsap.to('#city-generator .section-title', {
             scrollTrigger: {
-                trigger: '#plugin .section-title',
+                trigger: '#city-generator .section-title',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power3.out'
+        });
+        
+        gsap.to('#heightmap .section-title', {
+            scrollTrigger: {
+                trigger: '#heightmap .section-title',
                 start: 'top 80%',
                 toggleActions: 'play none none none'
             },

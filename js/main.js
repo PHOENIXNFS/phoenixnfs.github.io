@@ -22,6 +22,8 @@ class Main {
         this.setupVideoModal();
         this.setupSmoothScroll();
         this.setupScrollEffects();
+        this.setupDropdowns();
+        this.setupSlideshows();
     }
     
     setupNavigation() {
@@ -136,6 +138,115 @@ class Main {
         this.videoModal.classList.remove('active');
         this.videoIframe.src = '';
         document.body.style.overflow = '';
+    }
+    
+    setupDropdowns() {
+        const dropdowns = document.querySelectorAll('.nav-dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+            if (!toggle) return;
+            
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = dropdown.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', isOpen);
+            });
+            
+            dropdown.querySelectorAll('.nav-dropdown-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    dropdown.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        });
+        
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('open');
+                    const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+                    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+        
+        // Mobile Tools submenu
+        document.querySelectorAll('.mobile-submenu').forEach(submenu => {
+            const toggle = submenu.querySelector('.mobile-submenu-toggle');
+            if (!toggle) return;
+            
+            toggle.addEventListener('click', () => {
+                const isOpen = submenu.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', isOpen);
+            });
+            
+            submenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    submenu.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        });
+        
+        // Close dropdowns on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key !== 'Escape') return;
+            
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('open');
+                const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+                if (toggle) toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+    
+    setupSlideshows() {
+        document.querySelectorAll('.slideshow').forEach(root => {
+            const slides = Array.from(root.querySelectorAll('.slide'));
+            const dots = Array.from(root.querySelectorAll('.slide-dot'));
+            const prev = root.querySelector('.slide-prev');
+            const next = root.querySelector('.slide-next');
+            
+            if (slides.length < 2) return;
+            
+            let index = 0;
+            let timer = null;
+            
+            const show = (i) => {
+                index = (i + slides.length) % slides.length;
+                slides.forEach((slide, n) => slide.classList.toggle('active', n === index));
+                dots.forEach((dot, n) => dot.classList.toggle('active', n === index));
+            };
+            
+            const stop = () => {
+                if (timer) {
+                    clearInterval(timer);
+                    timer = null;
+                }
+            };
+            
+            const start = () => {
+                stop();
+                timer = setInterval(() => show(index + 1), 5000);
+            };
+            
+            if (prev) prev.addEventListener('click', () => { show(index - 1); start(); });
+            if (next) next.addEventListener('click', () => { show(index + 1); start(); });
+            
+            dots.forEach((dot, n) => {
+                dot.addEventListener('click', () => { show(n); start(); });
+            });
+            
+            // Pause while the pointer or keyboard focus is on the slideshow
+            root.addEventListener('mouseenter', stop);
+            root.addEventListener('mouseleave', start);
+            root.addEventListener('focusin', stop);
+            root.addEventListener('focusout', start);
+            
+            start();
+        });
     }
     
     setupSmoothScroll() {

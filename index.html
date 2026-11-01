@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2">
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
@@ -25,7 +25,18 @@
             <a href="#about">About</a>
             <a href="#games">Games</a>
             <a href="#projects">Projects</a>
-            <a href="#plugin">Plugin</a>
+            <div class="nav-dropdown">
+                <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                    Tools
+                    <svg class="dropdown-chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="nav-dropdown-menu">
+                    <a href="#city-generator">City Generator</a>
+                    <a href="#heightmap">Terrain Heightmap Generator</a>
+                </div>
+            </div>
             <a href="#contact">Contact</a>
         </div>
         <div class="nav-actions">
@@ -58,7 +69,18 @@
         <a href="#about">About</a>
         <a href="#games">Games</a>
         <a href="#projects">Projects</a>
-        <a href="#plugin">Plugin</a>
+        <div class="mobile-submenu">
+            <button type="button" class="mobile-submenu-toggle" aria-expanded="false">
+                Tools
+                <svg class="dropdown-chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="mobile-submenu-links">
+                <a href="#city-generator">City Generator</a>
+                <a href="#heightmap">Terrain Heightmap Generator</a>
+            </div>
+        </div>
         <a href="#contact">Contact</a>
     </div>
 
@@ -358,8 +380,8 @@
         </div>
     </section>
 
-    <!-- City Generator Plugin Section -->
-    <section id="plugin" class="plugin-section">
+    <!-- City Generator Section -->
+    <section id="city-generator" class="plugin-section">
         <div class="container">
             <h2 class="section-title">Procedural City Generator</h2>
             
@@ -479,6 +501,155 @@
         </div>
     </section>
 
+    <!-- Terrain Heightmap Generator Section -->
+    <section id="heightmap" class="heightmap-section">
+        <div class="container">
+            <h2 class="section-title">Terrain Heightmap Generator</h2>
+
+            <p class="plugin-description-full">A local, deterministic heightmap generator for game development. Shape island archipelagos or one continuous landscape from a JSON config, refine them with hydraulic erosion, and export engine-ready height data — all running on your own machine, with no accounts and no telemetry.</p>
+
+            <div class="plugin-layout">
+                <div class="plugin-video">
+                    <div class="slideshow">
+                        <div class="slide active">
+                            <img src="assets/images/heightmap/slide1.png" alt="Terrain Heightmap Generator interface with island controls and live 2D and 3D previews">
+                            <p class="slide-caption">Islands mode — per-island controls with live 2D &amp; 3D previews</p>
+                        </div>
+                        <div class="slide">
+                            <img src="assets/images/heightmap/slide2.png" alt="Terrain Heightmap Generator panels for noise, smoothing, erosion, masks and stats" loading="lazy">
+                            <p class="slide-caption">Noise, smoothing, erosion, masks and live stats panels</p>
+                        </div>
+                        <div class="slide">
+                            <img src="assets/images/heightmap/slide3.png" alt="Terrain Heightmap Generator landscape mode with a continuous inland terrain tile" loading="lazy">
+                            <p class="slide-caption">Landscape mode — one continuous inland tile with mountain ranges</p>
+                        </div>
+                        <div class="slide">
+                            <img src="assets/images/heightmap/slide4.png" alt="Unreal Engine landscape built from a generated 4096 by 4096 heightmap" loading="lazy">
+                            <p class="slide-caption">Unreal Engine landscape built from a generated 4096 × 4096 heightmap</p>
+                        </div>
+                        <button type="button" class="slide-btn slide-prev" aria-label="Previous slide">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <button type="button" class="slide-btn slide-next" aria-label="Next slide">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="slide-dots">
+                            <button type="button" class="slide-dot active" aria-label="Go to slide 1"></button>
+                            <button type="button" class="slide-dot" aria-label="Go to slide 2"></button>
+                            <button type="button" class="slide-dot" aria-label="Go to slide 3"></button>
+                            <button type="button" class="slide-dot" aria-label="Go to slide 4"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="plugin-features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                                <line x1="8" y1="2" x2="8" y2="18"></line>
+                                <line x1="16" y1="6" x2="16" y2="22"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Two Terrain Models</h4>
+                            <p>Islands with per-island seeds, or one continuous inland landscape</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2.7l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Hydraulic Erosion</h4>
+                            <p>Droplet simulation with up to 400k droplets, plus thermal smoothing</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Live 2D &amp; 3D Previews</h4>
+                            <p>Canvas and WebGL previews update as you move any control</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Engine-Ready Export</h4>
+                            <p>16-bit PNG, RAW16 and OpenEXR up to 8K for tools like Unreal, Blender</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="3" y1="15" x2="21" y2="15"></line>
+                                <line x1="9" y1="3" x2="9" y2="21"></line>
+                                <line x1="15" y1="3" x2="15" y2="21"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Water &amp; Slope Masks</h4>
+                            <p>Companion 8-bit masks for material blending and placement</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Deterministic &amp; Local</h4>
+                            <p>Seeded, reproducible output — runs on 127.0.0.1</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                                <polyline points="7 3 7 8 15 8"></polyline>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Save / Load System</h4>
+                            <p>Save and reload configurations as JSON</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-links">
+                <a href="https://github.com/PHOENIXNFS/Game-Heightmap-Generator" target="_blank" rel="noopener" class="btn btn-outline">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.03c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.67 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"></path>
+                    </svg>
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
@@ -594,7 +765,7 @@
     <script src="js/three-scene.js"></script>
     <script src="js/theme-toggle.js"></script>
     <script src="js/contact-form.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/animations.js?v=2"></script>
+    <script src="js/main.js?v=2"></script>
 </body>
 </html>
