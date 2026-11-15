@@ -31,6 +31,18 @@ class ThemeToggle {
     }
     
     setTheme(theme, save = true) {
+        // Swap variables with transitions suppressed so every themed surface
+        // repaints with the new palette in the same frame.
+        if (this.html.getAttribute('data-theme') !== theme) {
+            this.html.classList.add('theme-switching');
+            void this.html.offsetWidth;
+
+            clearTimeout(this.switchTimer);
+            this.switchTimer = setTimeout(() => {
+                this.html.classList.remove('theme-switching');
+            }, 90);
+        }
+
         this.html.setAttribute('data-theme', theme);
         
         if (save) {
@@ -40,7 +52,7 @@ class ThemeToggle {
         // Update meta theme color
         const metaThemeColor = document.querySelector('meta[name="theme-color"]');
         if (metaThemeColor) {
-            metaThemeColor.setAttribute('content', theme === 'dark' ? '#0a0a0f' : '#ffffff');
+            metaThemeColor.setAttribute('content', theme === 'dark' ? '#05070b' : '#f3f4ef');
         }
         
         // Dispatch custom event

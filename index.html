@@ -3,46 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheikh Mustafeedh Ahmed | Game Developer Portfolio</title>
-    <meta name="description" content="Portfolio of Sheikh Mustafeedh Ahmed - Game Developer specializing in Unity and Unreal Engine 5">
+    <title>Sheikh Mustafeedh Ahmed // Gameplay Systems Programmer</title>
+    <meta name="description" content="Player profile of Sheikh Mustafeedh Ahmed - Gameplay Systems Programmer specializing in Unreal Engine 5, Unity, C++ and procedural world generation.">
+    <meta name="theme-color" content="#05070b">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=2">
-    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Barlow:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/animations.css?v=3">
 </head>
 <body>
-    <!-- Three.js Canvas Background -->
-    <canvas id="three-canvas"></canvas>
+    <!-- Environment layers -->
+    <div class="env-grid" aria-hidden="true"></div>
+    <div class="env-scan" aria-hidden="true"></div>
+    <div class="env-vignette" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <canvas id="three-canvas" aria-hidden="true"></canvas>
+
+    <!-- Scroll progress -->
+    <div class="scroll-progress" aria-hidden="true"><span id="scroll-bar"></span></div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-brand">
-            <a href="#hero">SMA</a>
-        </div>
+    <nav class="navbar" id="navbar">
+        <a class="brand" href="#hero">
+            <span class="brand-frame">SMA</span>
+            <span class="brand-meta"><i class="dot-live"></i>Open to work</span>
+        </a>
+
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#games">Games</a>
-            <a href="#projects">Projects</a>
+            <a href="#about"><em>01</em>Briefing</a>
+            <a href="#games"><em>02</em>Shipped</a>
+            <a href="#projects"><em>03</em>Side Quests</a>
             <div class="nav-dropdown">
                 <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-                    Tools
-                    <svg class="dropdown-chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <em>04</em>Toolkit
+                    <svg class="dropdown-chevron" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </button>
                 <div class="nav-dropdown-menu">
-                    <a href="#city-generator">City Generator</a>
-                    <a href="#heightmap">Terrain Heightmap Generator</a>
+                    <a href="#city-generator"><span>City Generator</span><em>UE5 PLUGIN</em></a>
+                    <a href="#heightmap"><span>Heightmap Generator</span><em>LOCAL TOOL</em></a>
                 </div>
             </div>
-            <a href="#contact">Contact</a>
+            <a href="#contact"><em>05</em>Comms</a>
         </div>
+
         <div class="nav-actions">
             <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
-                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="5"></circle>
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="4.5"></circle>
                     <line x1="12" y1="1" x2="12" y2="3"></line>
                     <line x1="12" y1="21" x2="12" y2="23"></line>
                     <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
@@ -52,730 +63,623 @@
                     <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                 </svg>
-                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             </button>
             <button class="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile menu -->
     <div class="mobile-menu">
-        <a href="#about">About</a>
-        <a href="#games">Games</a>
-        <a href="#projects">Projects</a>
+        <a href="#about"><em>01</em>Briefing</a>
+        <a href="#games"><em>02</em>Shipped</a>
+        <a href="#projects"><em>03</em>Side Quests</a>
         <div class="mobile-submenu">
             <button type="button" class="mobile-submenu-toggle" aria-expanded="false">
-                Tools
-                <svg class="dropdown-chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <span><em>04</em>Toolkit</span>
+                <svg class="dropdown-chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                     <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
             </button>
             <div class="mobile-submenu-links">
                 <a href="#city-generator">City Generator</a>
-                <a href="#heightmap">Terrain Heightmap Generator</a>
+                <a href="#heightmap">Heightmap Generator</a>
             </div>
         </div>
-        <a href="#contact">Contact</a>
+        <a href="#contact"><em>05</em>Comms</a>
     </div>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-        <div class="hero-content">
-            <p class="hero-greeting">Hello, I'm</p>
-            <h1 class="hero-name">Sheikh Mustafeedh Ahmed</h1>
-            <p class="hero-title">Gameplay Systems Programmer <span class="separator">|</span> Unreal Engine 5 & Unity</p>
-            <p class="hero-description">Passionate about creating immersive gaming experiences with innovative mechanics and stunning visuals.</p>
-            <div class="hero-cta">
-                <a href="#games" class="btn btn-primary">View My Games</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-            </div>
-            <div class="hero-social">
-                <a href="https://www.linkedin.com/in/sheikh-mustafeedh-ahmed/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                </a>
-                <a href="https://twitter.com/SkMustafeedh" target="_blank" rel="noopener" aria-label="Twitter">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                </a>
-                <a href="https://sheikh-mustafeedh-ahmed.itch.io" target="_blank" rel="noopener" aria-label="itch.io">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3.13 1.338C2.08 1.96.02 3.103 0 3.6v.756c0 1.0.67 2.148 1.766 2.148.72 0 1.324-.38 1.676-.764.376.38.955.764 1.675.764.72 0 1.323-.38 1.675-.764.376.38.955.764 1.675.764.72 0 1.324-.38 1.676-.764.375.38.954.764 1.674.764.72 0 1.324-.38 1.676-.764.376.38.955.764 1.675.764.72 0 1.324-.38 1.676-.764.375.38.954.764 1.674.764.72 0 1.324-.38 1.676-.764.376.38.955.764 1.675.764.72 0 1.323-.38 1.675-.764.376.38.955.764 1.675.764 1.1 0 1.767-1.148 1.767-2.148V3.6c-.022-.497-2.082-1.64-3.13-2.262a22.498 22.498 0 0 0-14.74 0zm6.86 7.894c-.575 0-1.041-.466-1.041-1.041s.466-1.042 1.041-1.042 1.042.467 1.042 1.042-.467 1.041-1.042 1.041zm5.023 0c-.576 0-1.042-.466-1.042-1.041s.466-1.042 1.042-1.042 1.041.467 1.041 1.042-.466 1.041-1.041 1.041zm5.4 2.063c-1.058.583-2.104 1.12-2.104 1.12s.12.717.383 1.58c.215.702.51 1.263.882 1.688.45.51 1.02.86 1.682 1.023.154.038.29.066.414.086-.328.475-.712.868-1.15 1.164-1.06.713-2.356.964-3.49.853-1.35-.133-2.484-.736-3.453-1.527-.312.362-.664.693-1.056.974-.588.422-1.275.726-2.053.802-1.52.148-2.796-.376-3.745-1.434-.478-.532-.864-1.187-1.167-1.94.376-.425.67-1.027.88-1.726.262-.862.38-1.63.38-1.63s1.045-.537 2.103-1.12c-.576-.614-1.017-1.392-1.287-2.274-.424-1.383-.33-2.906.427-4.216.687-1.186 1.83-2.09 3.162-2.543 1.058-.358 2.19-.45 3.276-.316.97.12 1.864.447 2.636.984.663-.46 1.378-.79 2.112-.974.644-.16 1.32-.22 2.01-.168.938.07 1.79.42 2.504 1.01.614-.276 1.28-.45 1.988-.508.51-.043 1.02-.02 1.516.082.56.116 1.08.36 1.512.72.432-.36.953-.604 1.512-.72.497-.102 1.007-.125 1.516-.082.71.058 1.376.232 1.988.508.714-.59 1.566-.94 2.504-1.01.69-.052 1.366.008 2.01.168.734.184 1.45.514 2.112.974.772-.537 1.666-.864 2.636-.984 1.086-.134 2.218-.042 3.276.316 1.332.452 2.475 1.357 3.162 2.543.757 1.31.851 2.833.427 4.216-.27.882-.711 1.66-1.287 2.274 1.058.583 2.104 1.12 2.104 1.12s.12-.768.38-1.63c.21-.699.504-1.301.88-1.726-.303-.753-.689-1.408-1.167-1.94-.95-.958-2.224-1.482-3.745-1.434-.778.076-1.465.38-2.053.802-.392.281-.744.612-1.056.974-.97-.791-2.103-1.394-3.453-1.527-1.134-.111-2.43.14-3.49.853-.438.296-.822.689-1.15 1.164.124-.02.26-.048.414-.086.662-.164 1.232-.513 1.682-1.023.372-.425.667-.986.882-1.688.263-.863.383-1.58.383-1.58s-1.046-.537-2.104-1.12z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll Down</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
-            </svg>
-        </div>
-    </section>
+    <main>
+        <!-- Hero / Player card -->
+        <section id="hero" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="hud-kicker"><i class="dot-live"></i>Player Profile // 001</p>
+                    <h1 class="hero-name">
+                        <span class="line-1">Sheikh</span>
+                        <span class="line-2">Mustafeedh</span>
+                        <span class="line-3">Ahmed</span>
+                    </h1>
+                    <p class="hero-role">
+                        <span class="role-caret">&gt;</span>
+                        <span id="role-text">Gameplay Systems Programmer</span><span class="caret" aria-hidden="true"></span>
+                    </p>
+                    <p class="hero-desc">Passionate about creating immersive gaming experiences with innovative mechanics and stunning visuals. Building modular gameplay architecture, procedural worlds and AI-driven systems in Unreal Engine 5 and Unity.</p>
+                    <div class="hero-cta">
+                        <a href="#games" class="btn btn-primary">
+                            <span>Deploy Portfolio</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                        <a href="#contact" class="btn btn-ghost">Open Comms</a>
+                    </div>
+                    <div class="hero-social">
+                        <span class="hero-social-label">Channels</span>
+                        <a href="https://www.linkedin.com/in/sheikh-mustafeedh-ahmed/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/SkMustafeedh" target="_blank" rel="noopener" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="https://sheikh-mustafeedh-ahmed.itch.io" target="_blank" rel="noopener" aria-label="itch.io">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3.13 1.34C2.08 1.96.02 3.1 0 3.6v.76c0 1 .67 2.15 1.77 2.15.72 0 1.32-.38 1.67-.77.38.39.96.77 1.68.77.72 0 1.32-.38 1.68-.77.37.39.95.77 1.67.77.72 0 1.32-.38 1.68-.77.37.39.95.77 1.67.77.72 0 1.32-.38 1.68-.77.38.39.95.77 1.67.77.72 0 1.32-.38 1.68-.77.37.39.95.77 1.74.77 1.1 0 1.77-1.15 1.77-2.15V3.6c-.02-.5-2.08-1.64-3.13-2.26a22.5 22.5 0 0 0-14.74 0zM10 9.23a1.04 1.04 0 1 1 0-2.08 1.04 1.04 0 0 1 0 2.08zm5.02 0a1.04 1.04 0 1 1 0-2.08 1.04 1.04 0 0 1 0 2.08zM6.75 12.4c1.06-1.4 2.4-1.55 3.3-.55 1.05-.8 2.35-.85 3.55.05 1-.95 2.4-.8 3.4.6.75 1.05 1 2.2.9 3.3-.15 1.8-1.35 3.2-3.1 3.6-1.15.25-2.35.15-3.35-.4-.6.35-1.3.55-2.05.55-2.3 0-4.05-1.9-3.95-4.2.05-1.05.5-2.15 1.3-2.95z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Gameplay Systems Programmer (MSc Game Development, Distinction) specializing in Unreal Engine 5, scalable gameplay architecture, procedural systems, and modular runtime frameworks using C++, C#, and Python. Experienced in developing custom vehicle physics, AI-driven gameplay systems, multiplayer features, and procedural generation workflows.</p>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                    <line x1="8" y1="21" x2="16" y2="21"></line>
-                                    <line x1="12" y1="17" x2="12" y2="21"></line>
-                                </svg>
-                            </div>
-                            <span>Unreal Engine 5</span>
+                <aside class="player-card brackets" id="player-card">
+                    <header class="pc-head">
+                        <span class="mono">// dossier</span>
+                        <span class="pc-status"><i class="dot-live"></i>online</span>
+                    </header>
+
+                    <div class="pc-identity">
+                        <div class="pc-badge">SMA</div>
+                        <div>
+                            <h2>Sheikh M. Ahmed</h2>
+                            <p>MSc Game Development · Distinction</p>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                                </svg>
-                            </div>
-                            <span>Unity</span>
+                    </div>
+
+                    <dl class="pc-attrs">
+                        <div><dt>Class</dt><dd>Gameplay Systems</dd></div>
+                        <div><dt>Weapons of choice</dt><dd>C++ · C# · Python</dd></div>
+                        <div><dt>Engines</dt><dd>Unreal 5 · Unity</dd></div>
+                        <div><dt>Availability</dt><dd class="acid">Open to roles</dd></div>
+                    </dl>
+
+                    <div class="pc-meters">
+                        <div class="meter" style="--v:94">
+                            <div class="meter-top"><span>Engine Mastery</span><b>LV 94</b></div>
+                            <div class="meter-bar"><i></i></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <polyline points="16 18 22 12 16 6"></polyline>
-                                    <polyline points="8 6 2 12 8 18"></polyline>
-                                </svg>
-                            </div>
-                            <span>C++ • C# • Python</span>
+                        <div class="meter" style="--v:90">
+                            <div class="meter-top"><span>Gameplay Architecture</span><b>LV 90</b></div>
+                            <div class="meter-bar"><i></i></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                                </svg>
-                            </div>
-                            <span>Procedural Generation</span>
+                        <div class="meter" style="--v:88">
+                            <div class="meter-top"><span>Procedural Generation</span><b>LV 88</b></div>
+                            <div class="meter-bar"><i></i></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    </div>
+
+                    <footer class="pc-foot">
+                        <span>UGS-001</span>
+                        <span>// verified build</span>
+                    </footer>
+                </aside>
+            </div>
+
+            <div class="hero-ticker" aria-hidden="true">
+                <div class="ticker-track">
+                    <span>Unreal Engine 5</span><i>//</i><span>C++</span><i>//</i><span>Unity</span><i>//</i><span>C#</span><i>//</i><span>Procedural Generation</span><i>//</i><span>ML-Agents</span><i>//</i><span>Multiplayer</span><i>//</i><span>Vehicle Physics</span><i>//</i><span>Shaders</span><i>//</i><span>VR</span><i>//</i><span>Python</span><i>//</i>
+                    <span>Unreal Engine 5</span><i>//</i><span>C++</span><i>//</i><span>Unity</span><i>//</i><span>C#</span><i>//</i><span>Procedural Generation</span><i>//</i><span>ML-Agents</span><i>//</i><span>Multiplayer</span><i>//</i><span>Vehicle Physics</span><i>//</i><span>Shaders</span><i>//</i><span>VR</span><i>//</i><span>Python</span><i>//</i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Briefing -->
+        <section id="about" class="section">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="hud-kicker">01 // Briefing</p>
+                    <h2 class="section-title">Player<span>Briefing</span></h2>
+                </header>
+
+                <div class="brief-grid">
+                    <div class="brief-copy reveal">
+                        <p class="brief-lead">Gameplay Systems Programmer (MSc Game Development, Distinction) specializing in Unreal Engine 5, scalable gameplay architecture, procedural systems, and modular runtime frameworks using C++, C#, and Python.</p>
+                        <p>Experienced in developing custom vehicle physics, AI-driven gameplay systems, multiplayer features, and procedural generation workflows — from prototype greybox to shippable build.</p>
+
+                        <div class="stat-strip">
+                            <div class="stat"><b data-count="6">06</b><span>Shipped titles</span></div>
+                            <div class="stat"><b data-count="2">02</b><span>Core engines</span></div>
+                            <div class="stat"><b data-count="95" data-suffix="%">95%</b><span>AI lap parity</span></div>
+                            <div class="stat"><b>8K</b><span>Terrain export</span></div>
+                        </div>
+                    </div>
+
+                    <div class="loadout brackets reveal">
+                        <div class="loadout-head">
+                            <span class="mono">Loadout // equipped</span>
+                            <span class="mono dim">06 slots</span>
+                        </div>
+                        <ul class="loadout-list">
+                            <li class="loadout-item" style="--v:94">
+                                <div class="li-head"><span class="li-name">Unreal Engine 5</span><span class="li-lvl">LV 94</span></div>
+                                <div class="li-bar"><i></i></div>
+                                <p class="li-note">C++ gameplay framework, editor tooling, world building</p>
+                            </li>
+                            <li class="loadout-item" style="--v:89">
+                                <div class="li-head"><span class="li-name">Unity</span><span class="li-lvl">LV 89</span></div>
+                                <div class="li-bar"><i></i></div>
+                                <p class="li-note">C# runtime systems, VR, ML-Agents, multiplayer</p>
+                            </li>
+                            <li class="loadout-item" style="--v:91">
+                                <div class="li-head"><span class="li-name">Procedural Generation</span><span class="li-lvl">LV 91</span></div>
+                                <div class="li-bar"><i></i></div>
+                                <p class="li-note">City layouts, terrain heightmaps, dungeon synthesis</p>
+                            </li>
+                            <li class="loadout-item" style="--v:86">
+                                <div class="li-head"><span class="li-name">AI &amp; ML-Agents</span><span class="li-lvl">LV 86</span></div>
+                                <div class="li-bar"><i></i></div>
+                                <p class="li-note">Perception-driven enemies, reinforcement learning agents</p>
+                            </li>
+                            <li class="loadout-item" style="--v:82">
+                                <div class="li-head"><span class="li-name">Multiplayer Systems</span><span class="li-lvl">LV 82</span></div>
+                                <div class="li-bar"><i></i></div>
+                                <p class="li-note">Photon networking, state sync, persistence, voice chat</p>
+                            </li>
+                            <li class="loadout-item" style="--v:84">
+                                <div class="li-head"><span class="li-name">Tooling &amp; Pipelines</span><span class="li-lvl">LV 84</span></div>
+                                <div class="li-bar"><i></i></div>
+                                <p class="li-note">Python workflows, export pipelines, editor utilities</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shipped games -->
+        <section id="games" class="section section-alt">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="hud-kicker">02 // Deployments</p>
+                    <h2 class="section-title">Shipped<span>Titles</span></h2>
+                    <p class="section-sub">A collection of games I've developed across various genres and platforms. Pick a title, watch the trailer, take a build.</p>
+                </header>
+
+                <div class="mission-grid">
+                    <!-- Street King Demo -->
+                    <article class="mission-card brackets reveal" style="--i:0">
+                        <div class="mc-media">
+                            <img src="assets/images/street-king-demo.jpg" alt="Street King Demo" loading="lazy" onerror="this.src='https://via.placeholder.com/640x420/0b1119/c8ff45?text=Street+King+Demo'">
+                            <span class="mc-code">M-01</span>
+                            <span class="mc-sweep" aria-hidden="true"></span>
+                            <button class="play-btn" data-video="https://www.youtube.com/embed/qjm2J9vpS9s" aria-label="Watch Street King trailer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                <span>Trailer</span>
+                            </button>
+                        </div>
+                        <div class="mc-body">
+                            <div class="mc-tags"><span class="tag">Racing</span><span class="tag ghost">Vehicle Physics</span></div>
+                            <h3>Street King Demo</h3>
+                            <p>Modular open-world arcade racing with custom vehicle physics, spline-driven race framework, and police pursuit AI.</p>
+                            <div class="mc-links">
+                                <a href="https://sheikh-mustafeedh-ahmed.itch.io/street-king-demo" target="_blank" rel="noopener" class="btn btn-small">Download</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Agent X -->
+                    <article class="mission-card brackets reveal" style="--i:1">
+                        <div class="mc-media">
+                            <img src="assets/images/agent-x-training-facility.jpg" alt="Agent X: Training Facility" loading="lazy" onerror="this.src='https://via.placeholder.com/640x420/0b1119/c8ff45?text=Agent+X'">
+                            <span class="mc-code">M-02</span>
+                            <span class="mc-sweep" aria-hidden="true"></span>
+                            <button class="play-btn" data-video="https://www.youtube.com/embed/_qOpgbtGoOA" aria-label="Watch Agent X trailer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                <span>Trailer</span>
+                            </button>
+                        </div>
+                        <div class="mc-body">
+                            <div class="mc-tags"><span class="tag">Shooter</span><span class="tag ghost">AI Perception</span></div>
+                            <h3>Agent X: Training Facility</h3>
+                            <p>Third-person shooter with AI Perception-driven enemies, modular weapon systems, and grappling/wall-running mechanics.</p>
+                            <div class="mc-links">
+                                <a href="https://sheikh-mustafeedh-ahmed.itch.io/agent-x-training-facility" target="_blank" rel="noopener" class="btn btn-small">Download</a>
+                                <a href="https://github.com/PHOENIXNFS/AGENT-X-TRAINING-FACILITY" target="_blank" rel="noopener" class="btn btn-small btn-ghost">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Terranova Escape VR -->
+                    <article class="mission-card brackets reveal" style="--i:2">
+                        <div class="mc-media">
+                            <img src="assets/images/terranova-escape-vr.jpg" alt="Terranova Escape VR" loading="lazy" onerror="this.src='https://via.placeholder.com/640x420/0b1119/c8ff45?text=Terranova+VR'">
+                            <span class="mc-code">M-03</span>
+                            <span class="mc-sweep" aria-hidden="true"></span>
+                            <button class="play-btn" data-video="https://www.youtube.com/embed/7-6qtunNuQk" aria-label="Watch Terranova Escape trailer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                <span>Trailer</span>
+                            </button>
+                        </div>
+                        <div class="mc-body">
+                            <div class="mc-tags"><span class="tag">VR Survival</span><span class="tag ghost">Quest 2</span></div>
+                            <h3>Terranova Escape VR</h3>
+                            <p>VR escape room optimized for Quest 2 with stealth mechanics, timed objectives, and haptic interaction feedback.</p>
+                            <div class="mc-links">
+                                <a href="https://sheikh-mustafeedh-ahmed.itch.io/terranova-escape" target="_blank" rel="noopener" class="btn btn-small">Download</a>
+                                <a href="https://github.com/PHOENIXNFS/Kingston-University-Survival-Stealth-VR-Game" target="_blank" rel="noopener" class="btn btn-small btn-ghost">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Enola Holmes -->
+                    <article class="mission-card brackets reveal" style="--i:3">
+                        <div class="mc-media">
+                            <img src="assets/images/enola-holmes.jpg" alt="Enola Holmes: Jack The Ripper" loading="lazy" onerror="this.src='https://via.placeholder.com/640x420/0b1119/c8ff45?text=Enola+Holmes'">
+                            <span class="mc-code">M-04</span>
+                            <span class="mc-sweep" aria-hidden="true"></span>
+                            <button class="play-btn" data-video="https://www.youtube.com/embed/LH3tT0UiaL4" aria-label="Watch Enola Holmes trailer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                <span>Trailer</span>
+                            </button>
+                        </div>
+                        <div class="mc-body">
+                            <div class="mc-tags"><span class="tag">Puzzle</span><span class="tag ghost">Investigation</span></div>
+                            <h3>Enola Holmes: Jack The Ripper</h3>
+                            <p>Game prototype featuring puzzle-solving and mystery investigation gameplay mechanics.</p>
+                            <div class="mc-links">
+                                <a href="https://sheikh-mustafeedh-ahmed.itch.io/enola-holmes-and-the-mysterios" target="_blank" rel="noopener" class="btn btn-small">Download</a>
+                                <a href="https://github.com/PHOENIXNFS/Enola-Holmes-DSP" target="_blank" rel="noopener" class="btn btn-small btn-ghost">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Robomonks -->
+                    <article class="mission-card brackets reveal" style="--i:4">
+                        <div class="mc-media">
+                            <img src="assets/images/robomonks.jpg" alt="Robomonks" loading="lazy" onerror="this.src='https://via.placeholder.com/640x420/0b1119/c8ff45?text=Robomonks'">
+                            <span class="mc-code">M-05</span>
+                            <span class="mc-sweep" aria-hidden="true"></span>
+                            <button class="play-btn" data-video="https://www.youtube.com/embed/5wA9_bR2Yug" aria-label="Watch Robomonks trailer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                <span>Trailer</span>
+                            </button>
+                        </div>
+                        <div class="mc-body">
+                            <div class="mc-tags"><span class="tag">Shooter</span><span class="tag ghost">Co-op</span></div>
+                            <h3>Robomonks</h3>
+                            <p>Post-apocalyptic co-op shooter with Photon multiplayer, Firebase persistence, and real-time voice chat.</p>
+                            <div class="mc-links">
+                                <a href="https://sheikh-mustafeedh-ahmed.itch.io/robomonks" target="_blank" rel="noopener" class="btn btn-small">Download</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Xtreme Racing -->
+                    <article class="mission-card brackets reveal" style="--i:5">
+                        <div class="mc-media">
+                            <img src="assets/images/xtreme-racing.jpg" alt="Xtreme Racing EV Grand Prix" loading="lazy" onerror="this.src='https://via.placeholder.com/640x420/0b1119/c8ff45?text=Xtreme+Racing'">
+                            <span class="mc-code">M-06</span>
+                            <span class="mc-sweep" aria-hidden="true"></span>
+                            <button class="play-btn" data-video="https://www.youtube.com/embed/4R5A8RSXIhU" aria-label="Watch Xtreme Racing trailer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                <span>Trailer</span>
+                            </button>
+                        </div>
+                        <div class="mc-body">
+                            <div class="mc-tags"><span class="tag">Racing</span><span class="tag ghost">ML-Agents</span></div>
+                            <h3>Xtreme Racing — EV Grand Prix</h3>
+                            <p>Racing game with ML-Agents AI achieving 95% of player lap times and reinforced-learning pipeline.</p>
+                            <div class="mc-links">
+                                <a href="https://sheikh-mustafeedh-ahmed.itch.io/xtreme-racing-ev-grand-prix" target="_blank" rel="noopener" class="btn btn-small">Download</a>
+                                <a href="https://github.com/PHOENIXNFS/MSC-Game-Development-Final-Project" target="_blank" rel="noopener" class="btn btn-small btn-ghost">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Side quests -->
+        <section id="projects" class="section">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="hud-kicker">03 // Side quests</p>
+                    <h2 class="section-title">Solo<span>Runs</span></h2>
+                    <p class="section-sub">Additional projects showcasing different technologies and skills.</p>
+                </header>
+
+                <div class="quest-grid">
+                    <article class="quest-card brackets reveal" style="--i:0">
+                        <div class="qc-top">
+                            <span class="qc-code">SQ-01</span>
+                            <span class="qc-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                    <rect x="3" y="3" width="18" height="18" rx="1"></rect>
+                                    <path d="M9 3v18M15 3v18M3 9h18M3 15h18"></path>
+                                </svg>
+                            </span>
+                        </div>
+                        <h3>Procedural Dungeon Generator</h3>
+                        <p class="qc-tech">Python · Unity · CNN Autoencoders</p>
+                        <p>Prototyped a dungeon generation system using CNN autoencoders that generated diverse room layouts, integrating raw image outputs into Unity for procedural assembly.</p>
+                        <span class="qc-status"><i></i>Completed</span>
+                    </article>
+
+                    <article class="quest-card brackets reveal" style="--i:1">
+                        <div class="qc-top">
+                            <span class="qc-code">SQ-02</span>
+                            <span class="qc-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </span>
+                        </div>
+                        <h3>Smart Resume Builder</h3>
+                        <p class="qc-tech">OpenAI API · Web App</p>
+                        <p>Developed a Smart Resume Builder web app using OpenAI Assistants API for ATS-optimized resume and cover letter generation. Reduced response latency by 15%.</p>
+                        <span class="qc-status"><i></i>Completed</span>
+                    </article>
+
+                    <article class="quest-card brackets reveal" style="--i:2">
+                        <div class="qc-top">
+                            <span class="qc-code">SQ-03</span>
+                            <span class="qc-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                                     <circle cx="12" cy="12" r="3"></circle>
                                     <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
                                 </svg>
+                            </span>
+                        </div>
+                        <h3>AI Q&amp;A Chatbot</h3>
+                        <p class="qc-tech">AI · Japanese · Live Feedback</p>
+                        <p>Designed an AI-powered question-answer chatbot with live feedback loop, native Japanese language support, and sub-500ms latency for recruiter evaluation.</p>
+                        <span class="qc-status"><i></i>Completed</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- City Generator -->
+        <section id="city-generator" class="section section-alt">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="hud-kicker">04.1 // In-house tech</p>
+                    <h2 class="section-title">Procedural<span>City Generator</span></h2>
+                    <p class="section-sub">The core world-building technology for Street King, my upcoming single-player narrative street racing game. Modular, scalable, and designed specifically for game development.</p>
+                </header>
+
+                <div class="tool-layout">
+                    <div class="tool-media reveal">
+                        <div class="video-embed brackets">
+                            <iframe src="https://www.youtube.com/embed/cLh_HYgN0bM" title="City Generator Plugin Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="tool-meta mono"><span>// Unreal Engine 5 plugin</span><span>08 modules</span></div>
+                    </div>
+
+                    <div class="feature-grid">
+                        <div class="feature-item reveal" style="--i:0"><span class="fi-idx">01</span><div><h4>Road System</h4><p>Multi-lane roads with centerlines and center treatments</p></div></div>
+                        <div class="feature-item reveal" style="--i:1"><span class="fi-idx">02</span><div><h4>Ramps</h4><p>Advanced interchange and corridor transition handling</p></div></div>
+                        <div class="feature-item reveal" style="--i:2"><span class="fi-idx">03</span><div><h4>Intersections</h4><p>Curve-aware corner arcs and N-way intersection solving</p></div></div>
+                        <div class="feature-item reveal" style="--i:3"><span class="fi-idx">04</span><div><h4>Bridges &amp; Tunnels</h4><p>Auto bridge generation with pillars and terrain-following</p></div></div>
+                        <div class="feature-item reveal" style="--i:4"><span class="fi-idx">05</span><div><h4>Terraforming</h4><p>Shared landscape modification for roads and structures</p></div></div>
+                        <div class="feature-item reveal" style="--i:5"><span class="fi-idx">06</span><div><h4>Districts &amp; Lots</h4><p>Organic district generation with footprint-based building spawning</p></div></div>
+                        <div class="feature-item reveal" style="--i:6"><span class="fi-idx">07</span><div><h4>Traffic System</h4><p>Lane-aware traffic graph with corridor transitions, ramps, and connectors</p></div></div>
+                        <div class="feature-item reveal" style="--i:7"><span class="fi-idx">08</span><div><h4>Editor Toolkit</h4><p>Updated tools including Spline Mesh Placer and improved workflow</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Heightmap Generator -->
+        <section id="heightmap" class="section">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="hud-kicker">04.2 // In-house tech</p>
+                    <h2 class="section-title">Terrain<span>Heightmap Generator</span></h2>
+                    <p class="section-sub">A local, deterministic heightmap generator for game development. Shape island archipelagos or one continuous landscape from a JSON config, refine them with hydraulic erosion, and export engine-ready height data — all running on your own machine, with no accounts and no telemetry.</p>
+                </header>
+
+                <div class="tool-layout">
+                    <div class="tool-media reveal">
+                        <div class="slideshow brackets">
+                            <div class="slide active">
+                                <img src="assets/images/heightmap/slide1.png" alt="Terrain Heightmap Generator interface with island controls and live 2D and 3D previews">
+                                <p class="slide-caption">Islands mode — per-island controls with live 2D &amp; 3D previews</p>
                             </div>
-                            <span>AI Systems • ML-Agents</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
+                            <div class="slide">
+                                <img src="assets/images/heightmap/slide2.png" alt="Terrain Heightmap Generator panels for noise, smoothing, erosion, masks and stats" loading="lazy">
+                                <p class="slide-caption">Noise, smoothing, erosion, masks and live stats panels</p>
                             </div>
-                            <span>Multiplayer Systems</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Games Section -->
-    <section id="games" class="games-section">
-        <div class="container">
-            <h2 class="section-title">My Games</h2>
-            <p class="section-subtitle">A collection of games I've developed across various genres and platforms.</p>
-            
-            <div class="games-grid">
-                <!-- Street King Demo -->
-                <div class="game-card" data-genre="racing">
-                    <div class="game-image">
-                        <img src="assets/images/street-king-demo.jpg" alt="Street King Demo" onerror="this.src='https://via.placeholder.com/600x400/6c63ff/ffffff?text=Street+King+Demo'">
-                        <div class="game-overlay">
-                            <button class="play-btn" data-video="https://www.youtube.com/embed/qjm2J9vpS9s" aria-label="Watch trailer">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
+                            <div class="slide">
+                                <img src="assets/images/heightmap/slide3.png" alt="Terrain Heightmap Generator landscape mode with a continuous inland terrain tile" loading="lazy">
+                                <p class="slide-caption">Landscape mode — one continuous inland tile with mountain ranges</p>
+                            </div>
+                            <div class="slide">
+                                <img src="assets/images/heightmap/slide4.png" alt="Terrain Heightmap Generator exporting a custom 4081 by 4081 four-island terrain for testing" loading="lazy">
+                                <p class="slide-caption">Terrain exported for testing — custom 4081 × 4081 island export</p>
+                            </div>
+                            <div class="slide">
+                                <img src="assets/images/heightmap/slide5.png" alt="Generated 4081 by 4081 terrain heightmap rendered as a grayscale image" loading="lazy">
+                                <p class="slide-caption">Generated heightmap — 4081 × 4081 grayscale output</p>
+                            </div>
+                            <div class="slide">
+                                <img src="assets/images/heightmap/slide6.png" alt="Unreal Engine 5 landscape of four islands built from the generated heightmap in the Street King project" loading="lazy">
+                                <p class="slide-caption">Unreal Engine landscape built from a generated 4096 × 4096 heightmap — water is my own shader</p>
+                            </div>
+                            <button type="button" class="slide-btn slide-prev" aria-label="Previous slide">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
                             </button>
-                        </div>
-                    </div>
-                    <div class="game-info">
-                        <span class="game-genre">Racing</span>
-                        <h3>Street King Demo</h3>
-                        <p>Modular open-world arcade racing with custom vehicle physics, spline-driven race framework, and police pursuit AI.</p>
-                        <div class="game-links">
-                            <a href="https://sheikh-mustafeedh-ahmed.itch.io/street-king-demo" target="_blank" rel="noopener" class="btn btn-small">Download</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Agent X -->
-                <div class="game-card" data-genre="shooter">
-                    <div class="game-image">
-                        <img src="assets/images/agent-x-training-facility.jpg" alt="Agent X: Training Facility" onerror="this.src='https://via.placeholder.com/600x400/6c63ff/ffffff?text=Agent+X'">
-                        <div class="game-overlay">
-                            <button class="play-btn" data-video="https://www.youtube.com/embed/_qOpgbtGoOA" aria-label="Watch trailer">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
+                            <button type="button" class="slide-btn slide-next" aria-label="Next slide">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                             </button>
+                            <div class="slide-dots">
+                                <button type="button" class="slide-dot active" aria-label="Go to slide 1"></button>
+                                <button type="button" class="slide-dot" aria-label="Go to slide 2"></button>
+                                <button type="button" class="slide-dot" aria-label="Go to slide 3"></button>
+                                <button type="button" class="slide-dot" aria-label="Go to slide 4"></button>
+                                <button type="button" class="slide-dot" aria-label="Go to slide 5"></button>
+                                <button type="button" class="slide-dot" aria-label="Go to slide 6"></button>
+                            </div>
                         </div>
+                        <div class="tool-meta mono"><span>// Standalone desktop tool</span><span>400k droplets</span></div>
                     </div>
-                    <div class="game-info">
-                        <span class="game-genre">Shooter</span>
-                        <h3>Agent X: Training Facility</h3>
-                        <p>Third-person shooter with AI Perception-driven enemies, modular weapon systems, and grappling/wall-running mechanics.</p>
-                        <div class="game-links">
-                            <a href="https://sheikh-mustafeedh-ahmed.itch.io/agent-x-training-facility" target="_blank" rel="noopener" class="btn btn-small">Download</a>
-                            <a href="https://github.com/PHOENIXNFS/AGENT-X-TRAINING-FACILITY" target="_blank" rel="noopener" class="btn btn-small btn-outline">GitHub</a>
-                        </div>
+
+                    <div class="feature-grid">
+                        <div class="feature-item reveal" style="--i:0"><span class="fi-idx">01</span><div><h4>Two Terrain Models</h4><p>Islands with per-island seeds, or one continuous inland landscape</p></div></div>
+                        <div class="feature-item reveal" style="--i:1"><span class="fi-idx">02</span><div><h4>Hydraulic Erosion</h4><p>Droplet simulation with up to 400k droplets, plus thermal smoothing</p></div></div>
+                        <div class="feature-item reveal" style="--i:2"><span class="fi-idx">03</span><div><h4>Live 2D &amp; 3D Previews</h4><p>Canvas and WebGL previews update as you move any control</p></div></div>
+                        <div class="feature-item reveal" style="--i:3"><span class="fi-idx">04</span><div><h4>Engine-Ready Export</h4><p>16-bit PNG, RAW16 and OpenEXR up to 8K for tools like Unreal and Blender</p></div></div>
+                        <div class="feature-item reveal" style="--i:4"><span class="fi-idx">05</span><div><h4>Water &amp; Slope Masks</h4><p>Companion 8-bit masks for material blending and placement</p></div></div>
+                        <div class="feature-item reveal" style="--i:5"><span class="fi-idx">06</span><div><h4>Deterministic &amp; Local</h4><p>Seeded, reproducible output — runs on 127.0.0.1</p></div></div>
+                        <div class="feature-item reveal" style="--i:6"><span class="fi-idx">07</span><div><h4>Save / Load System</h4><p>Save and reload configurations as JSON</p></div></div>
                     </div>
                 </div>
 
-                <!-- Terranova Escape VR -->
-                <div class="game-card" data-genre="vr-survival">
-                    <div class="game-image">
-                        <img src="assets/images/terranova-escape-vr.jpg" alt="Terranova Escape VR" onerror="this.src='https://via.placeholder.com/600x400/6c63ff/ffffff?text=Terranova+VR'">
-                        <div class="game-overlay">
-                            <button class="play-btn" data-video="https://www.youtube.com/embed/7-6qtunNuQk" aria-label="Watch trailer">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="game-info">
-                        <span class="game-genre">VR Survival</span>
-                        <h3>Terranova Escape VR</h3>
-                        <p>VR escape room optimized for Quest 2 with stealth mechanics, timed objectives, and haptic interaction feedback.</p>
-                        <div class="game-links">
-                            <a href="https://sheikh-mustafeedh-ahmed.itch.io/terranova-escape" target="_blank" rel="noopener" class="btn btn-small">Download</a>
-                            <a href="https://github.com/PHOENIXNFS/Kingston-University-Survival-Stealth-VR-Game" target="_blank" rel="noopener" class="btn btn-small btn-outline">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Enola Holmes -->
-                <div class="game-card" data-genre="puzzle">
-                    <div class="game-image">
-                        <img src="assets/images/enola-holmes.jpg" alt="Enola Holmes" onerror="this.src='https://via.placeholder.com/600x400/6c63ff/ffffff?text=Enola+Holmes'">
-                        <div class="game-overlay">
-                            <button class="play-btn" data-video="https://www.youtube.com/embed/LH3tT0UiaL4" aria-label="Watch trailer">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="game-info">
-                        <span class="game-genre">Puzzle</span>
-                        <h3>Enola Holmes: Jack The Ripper</h3>
-                        <p>Game prototype featuring puzzle-solving and mystery investigation gameplay mechanics.</p>
-                        <div class="game-links">
-                            <a href="https://sheikh-mustafeedh-ahmed.itch.io/enola-holmes-and-the-mysterios" target="_blank" rel="noopener" class="btn btn-small">Download</a>
-                            <a href="https://github.com/PHOENIXNFS/Enola-Holmes-DSP" target="_blank" rel="noopener" class="btn btn-small btn-outline">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Robomonks -->
-                <div class="game-card" data-genre="shooter">
-                    <div class="game-image">
-                        <img src="assets/images/robomonks.jpg" alt="Robomonks" onerror="this.src='https://via.placeholder.com/600x400/6c63ff/ffffff?text=Robomonks'">
-                        <div class="game-overlay">
-                            <button class="play-btn" data-video="https://www.youtube.com/embed/5wA9_bR2Yug" aria-label="Watch trailer">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="game-info">
-                        <span class="game-genre">Shooter</span>
-                        <h3>Robomonks</h3>
-                        <p>Post-apocalyptic co-op shooter with Photon multiplayer, Firebase persistence, and real-time voice chat.</p>
-                        <div class="game-links">
-                            <a href="https://sheikh-mustafeedh-ahmed.itch.io/robomonks" target="_blank" rel="noopener" class="btn btn-small">Download</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Xtreme Racing -->
-                <div class="game-card" data-genre="racing">
-                    <div class="game-image">
-                        <img src="assets/images/xtreme-racing.jpg" alt="Xtreme Racing EV Grand Prix" onerror="this.src='https://via.placeholder.com/600x400/6c63ff/ffffff?text=Xtreme+Racing'">
-                        <div class="game-overlay">
-                            <button class="play-btn" data-video="https://www.youtube.com/embed/4R5A8RSXIhU" aria-label="Watch trailer">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="game-info">
-                        <span class="game-genre">Racing</span>
-                        <h3>Xtreme Racing - EV Grand Prix</h3>
-                        <p>Racing game with ML-Agents AI achieving 95% of player lap times and reinforced-learning pipeline.</p>
-                        <div class="game-links">
-                            <a href="https://sheikh-mustafeedh-ahmed.itch.io/xtreme-racing-ev-grand-prix" target="_blank" rel="noopener" class="btn btn-small">Download</a>
-                            <a href="https://github.com/PHOENIXNFS/MSC-Game-Development-Final-Project" target="_blank" rel="noopener" class="btn btn-small btn-outline">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Other Projects Section -->
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <p class="section-subtitle">Additional projects showcasing different technologies and skills.</p>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <path d="M9 3v18M15 3v18M3 9h18M3 15h18"></path>
+                <div class="tool-links reveal">
+                    <a href="https://github.com/PHOENIXNFS/Game-Heightmap-Generator" target="_blank" rel="noopener" class="btn btn-ghost">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.03c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.67 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"></path>
                         </svg>
-                    </div>
-                    <h3>Procedural Dungeon Generator</h3>
-                    <span class="project-tech">Python • Unity • CNN Autoencoders</span>
-                    <p>Prototyped a dungeon generation system using CNN autoencoders that generated diverse room layouts, integrating raw image outputs into Unity for procedural assembly.</p>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                        </svg>
-                    </div>
-                    <h3>Smart Resume Builder</h3>
-                    <span class="project-tech">OpenAI API • Web App</span>
-                    <p>Developed a Smart Resume Builder web app using OpenAI Assistants API for ATS-optimized resume and cover letter generation. Reduced response latency by 15%.</p>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                        </svg>
-                    </div>
-                    <h3>AI Q&A Chatbot</h3>
-                    <span class="project-tech">AI • Japanese Language • Live Feedback</span>
-                    <p>Designed an AI-powered question-answer chatbot with live feedback loop, native Japanese language support, and sub-500ms latency for recruiter evaluation.</p>
+                        View on GitHub
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- City Generator Section -->
-    <section id="city-generator" class="plugin-section">
-        <div class="container">
-            <h2 class="section-title">Procedural City Generator</h2>
-            
-            <p class="plugin-description-full">The core world-building technology for Street King, my upcoming single-player narrative street racing game. Modular, scalable, and designed specifically for game development.</p>
-            
-            <div class="plugin-layout">
-                <div class="plugin-video">
-                    <div class="video-embed">
-                        <iframe 
-                            src="https://www.youtube.com/embed/cLh_HYgN0bM" 
-                            title="City Generator Plugin Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="plugin-features-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Road System</h4>
-                            <p>Multi-lane roads with centerlines and center treatments</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 14l4-4 4 4 4-4 4 4"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Ramps</h4>
-                            <p>Advanced interchange and corridor transition handling</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <line x1="12" y1="8" x2="12" y2="16"></line>
-                                <line x1="8" y1="12" x2="16" y2="12"></line>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Procedural Intersections</h4>
-                            <p>Curve-aware corner arcs and N-way intersection solving</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M2 20h20M2 20c2-6 5-8 10-8s8 2 10 8M7 12V8M17 12V8"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Bridges & Tunnels</h4>
-                            <p>Auto bridge generation with pillars and terrain-following</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Landscape Terraforming</h4>
-                            <p>Shared landscape modification for roads and structures</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Districts & Organic Lots</h4>
-                            <p>Organic district generation with footprint-based building spawning</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="3"></circle>
-                                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Traffic System</h4>
-                            <p>Lane-aware traffic graph with corridor transitions, ramps, and connectors</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Editor Toolkit</h4>
-                            <p>Updated tools including Spline Mesh Placer and improved workflow</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Comms -->
+        <section id="contact" class="section section-alt">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="hud-kicker">05 // Comms</p>
+                    <h2 class="section-title">Open a<span>Channel</span></h2>
+                    <p class="section-sub">Have a question or want to collaborate? Feel free to reach out.</p>
+                </header>
 
-    <!-- Terrain Heightmap Generator Section -->
-    <section id="heightmap" class="heightmap-section">
-        <div class="container">
-            <h2 class="section-title">Terrain Heightmap Generator</h2>
+                <div class="comms-grid">
+                    <div class="comms-form reveal">
+                        <div class="panel-label mono"><span>// transmit</span><span>secure line</span></div>
+                        <form id="contact-form" class="contact-form" action="https://formspree.io/f/mdennaey" method="POST">
+                            <input type="hidden" name="_subject" value="New Portfolio Contact">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Call sign</label>
+                                    <input type="text" id="name" name="name" required placeholder="Your name" autocomplete="name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Return frequency</label>
+                                    <input type="email" id="email" name="email" required placeholder="your@email.com" autocomplete="email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <span>Send Transmission</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </button>
+                        </form>
+                        <div id="form-status" class="form-status"></div>
+                    </div>
 
-            <p class="plugin-description-full">A local, deterministic heightmap generator for game development. Shape island archipelagos or one continuous landscape from a JSON config, refine them with hydraulic erosion, and export engine-ready height data — all running on your own machine, with no accounts and no telemetry.</p>
-
-            <div class="plugin-layout">
-                <div class="plugin-video">
-                    <div class="slideshow">
-                        <div class="slide active">
-                            <img src="assets/images/heightmap/slide1.png" alt="Terrain Heightmap Generator interface with island controls and live 2D and 3D previews">
-                            <p class="slide-caption">Islands mode — per-island controls with live 2D &amp; 3D previews</p>
-                        </div>
-                        <div class="slide">
-                            <img src="assets/images/heightmap/slide2.png" alt="Terrain Heightmap Generator panels for noise, smoothing, erosion, masks and stats" loading="lazy">
-                            <p class="slide-caption">Noise, smoothing, erosion, masks and live stats panels</p>
-                        </div>
-                        <div class="slide">
-                            <img src="assets/images/heightmap/slide3.png" alt="Terrain Heightmap Generator landscape mode with a continuous inland terrain tile" loading="lazy">
-                            <p class="slide-caption">Landscape mode — one continuous inland tile with mountain ranges</p>
-                        </div>
-                        <div class="slide">
-                            <img src="assets/images/heightmap/slide4.png" alt="Terrain Heightmap Generator exporting a custom 4081 by 4081 four-island terrain for testing" loading="lazy">
-                            <p class="slide-caption">Terrain exported for testing — custom 4081 × 4081 island export</p>
-                        </div>
-                        <div class="slide">
-                            <img src="assets/images/heightmap/slide5.png" alt="Generated 4081 by 4081 terrain heightmap rendered as a grayscale image" loading="lazy">
-                            <p class="slide-caption">Generated heightmap — 4081 × 4081 grayscale output</p>
-                        </div>
-                        <div class="slide">
-                            <img src="assets/images/heightmap/slide6.png" alt="Unreal Engine 5 landscape of four islands built from the generated heightmap in the Street King project" loading="lazy">
-                            <p class="slide-caption">Unreal Engine landscape built from a generated 4096 × 4096 heightmap — water is my own shader</p>
-                        </div>
-                        <button type="button" class="slide-btn slide-prev" aria-label="Previous slide">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="15 18 9 12 15 6"></polyline>
-                            </svg>
-                        </button>
-                        <button type="button" class="slide-btn slide-next" aria-label="Next slide">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </button>
-                        <div class="slide-dots">
-                            <button type="button" class="slide-dot active" aria-label="Go to slide 1"></button>
-                            <button type="button" class="slide-dot" aria-label="Go to slide 2"></button>
-                            <button type="button" class="slide-dot" aria-label="Go to slide 3"></button>
-                            <button type="button" class="slide-dot" aria-label="Go to slide 4"></button>
-                            <button type="button" class="slide-dot" aria-label="Go to slide 5"></button>
-                            <button type="button" class="slide-dot" aria-label="Go to slide 6"></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="plugin-features-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
-                                <line x1="8" y1="2" x2="8" y2="18"></line>
-                                <line x1="16" y1="6" x2="16" y2="22"></line>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Two Terrain Models</h4>
-                            <p>Islands with per-island seeds, or one continuous inland landscape</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2.7l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Hydraulic Erosion</h4>
-                            <p>Droplet simulation with up to 400k droplets, plus thermal smoothing</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Live 2D &amp; 3D Previews</h4>
-                            <p>Canvas and WebGL previews update as you move any control</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                <polyline points="7 10 12 15 17 10"></polyline>
-                                <line x1="12" y1="15" x2="12" y2="3"></line>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Engine-Ready Export</h4>
-                            <p>16-bit PNG, RAW16 and OpenEXR up to 8K for tools like Unreal, Blender</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="3" y1="9" x2="21" y2="9"></line>
-                                <line x1="3" y1="15" x2="21" y2="15"></line>
-                                <line x1="9" y1="3" x2="9" y2="21"></line>
-                                <line x1="15" y1="3" x2="15" y2="21"></line>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Water &amp; Slope Masks</h4>
-                            <p>Companion 8-bit masks for material blending and placement</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Deterministic &amp; Local</h4>
-                            <p>Seeded, reproducible output — runs on 127.0.0.1</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
-                                <polyline points="17 21 17 13 7 13 7 21"></polyline>
-                                <polyline points="7 3 7 8 15 8"></polyline>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Save / Load System</h4>
-                            <p>Save and reload configurations as JSON</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tool-links">
-                <a href="https://github.com/PHOENIXNFS/Game-Heightmap-Generator" target="_blank" rel="noopener" class="btn btn-outline">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.03c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.67 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"></path>
-                    </svg>
-                    View on GitHub
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Have a question or want to collaborate? Feel free to reach out!</p>
-            
-            <div class="contact-content">
-                <div class="contact-form-container">
-                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/mdennaey" method="POST">
-                        <input type="hidden" name="_subject" value="New Portfolio Contact">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required placeholder="Your name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required placeholder="your@email.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required placeholder="What's this about?">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <span>Send Message</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="22" y1="2" x2="11" y2="13"></line>
-                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                            </svg>
-                        </button>
-                    </form>
-                    <div id="form-status" class="form-status"></div>
-                </div>
-                
-                <div class="contact-info">
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <div class="comms-channels">
+                        <div class="channel-card brackets reveal" style="--i:0">
+                            <span class="ch-idx">CH-01</span>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:sheikhmustafeedh.ahmed@gmail.com">sheikhmustafeedh.ahmed@gmail.com</a>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
                         </div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>sheikhmustafeedh.ahmed@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <div class="channel-card brackets reveal" style="--i:1">
+                            <span class="ch-idx">CH-02</span>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/sheikh-mustafeedh-ahmed/" target="_blank" rel="noopener">Connect with me</a>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                             </svg>
                         </div>
-                        <div>
-                            <h4>LinkedIn</h4>
-                            <a href="https://www.linkedin.com/in/sheikh-mustafeedh-ahmed/" target="_blank" rel="noopener">Connect with me</a>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <div class="channel-card brackets reveal" style="--i:2">
+                            <span class="ch-idx">CH-03</span>
+                            <div>
+                                <h4>Twitter</h4>
+                                <a href="https://twitter.com/SkMustafeedh" target="_blank" rel="noopener">@SkMustafeedh</a>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                             </svg>
                         </div>
-                        <div>
-                            <h4>Twitter</h4>
-                            <a href="https://twitter.com/SkMustafeedh" target="_blank" rel="noopener">@SkMustafeedh</a>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M3.13 1.338C2.08 1.96.02 3.103 0 3.6v.756c0 1.0.67 2.148 1.766 2.148.72 0 1.324-.38 1.676-.764.376.38.955.764 1.675.764.72 0 1.323-.38 1.675-.764.376.38.955.764 1.675.764.72 0 1.324-.38 1.676-.764.376.38.955.764 1.675.764.72 0 1.324-.38 1.676-.764.375.38.954.764 1.674.764.72 0 1.324-.38 1.676-.764.376.38.955.764 1.675.764 1.1 0 1.767-1.148 1.767-2.148V3.6c-.022-.497-2.082-1.64-3.13-2.262a22.498 22.498 0 0 0-14.74 0zm6.86 7.894c-.575 0-1.041-.466-1.041-1.041s.466-1.042 1.041-1.042 1.042.467 1.042 1.042-.467 1.041-1.042 1.041zm5.023 0c-.576 0-1.042-.466-1.042-1.041s.466-1.042 1.042-1.042 1.041.467 1.041 1.042-.466 1.041-1.041 1.041zm5.4 2.063c-1.058.583-2.104 1.12-2.104 1.12s.12.717.383 1.58c.215.702.51 1.263.882 1.688.45.51 1.02.86 1.682 1.023.154.038.29.066.414.086-.328.475-.712.868-1.15 1.164-1.06.713-2.356.964-3.49.853-1.35-.133-2.484-.736-3.453-1.527-.312.362-.664.693-1.056.974-.588.422-1.275.726-2.053.802-1.52.148-2.796-.376-3.745-1.434-.478-.532-.864-1.187-1.167-1.94.376-.425.67-1.027.88-1.726.262-.862.38-1.63.38-1.63s1.045-.537 2.103-1.12c-.576-.614-1.017-1.392-1.287-2.274-.424-1.383-.33-2.906.427-4.216.687-1.186 1.83-2.09 3.162-2.543 1.058-.358 2.19-.45 3.276-.316.97.12 1.864.447 2.636.984.663-.46 1.378-.79 2.112-.974.644-.16 1.32-.22 2.01-.168.938.07 1.79.42 2.504 1.01.614-.276 1.28-.45 1.988-.508.51-.043 1.02-.02 1.516.082.56.116 1.08.36 1.512.72.432-.36.953-.604 1.512-.72.497-.102 1.007-.125 1.516-.082.71.058 1.376.232 1.988.508.714-.59 1.566-.94 2.504-1.01.69-.052 1.366.008 2.01.168.734.184 1.45.514 2.112.974.772-.537 1.666-.864 2.636-.984 1.086-.134 2.218-.042 3.276.316 1.332.452 2.475 1.357 3.162 2.543.757 1.31.851 2.833.427 4.216-.27.882-.711 1.66-1.287 2.274 1.058.583 2.104 1.12 2.104 1.12s.12-.768.38-1.63c.21-.699.504-1.301.88-1.726-.303-.753-.689-1.408-1.287-1.94-.95-.958-2.224-1.482-3.745-1.434-.778.076-1.465.38-2.053.802-.392.281-.744.612-1.056.974-.97-.791-2.103-1.394-3.453-1.527-1.134-.111-2.43.14-3.49.853-.438.296-.822.689-1.15 1.164.124-.02.26-.048.414-.086.662-.164 1.232-.513 1.682-1.023.372-.425.667-.986.882-1.688.263-.863.383-1.58.383-1.58s-1.046-.537-2.104-1.12z"/>
+                        <div class="channel-card brackets reveal" style="--i:3">
+                            <span class="ch-idx">CH-04</span>
+                            <div>
+                                <h4>itch.io</h4>
+                                <a href="https://sheikh-mustafeedh-ahmed.itch.io" target="_blank" rel="noopener">View all games</a>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3.13 1.34C2.08 1.96.02 3.1 0 3.6v.76c0 1 .67 2.15 1.77 2.15.72 0 1.32-.38 1.67-.77.38.39.96.77 1.68.77.72 0 1.32-.38 1.68-.77.37.39.95.77 1.67.77.72 0 1.32-.38 1.68-.77.37.39.95.77 1.67.77.72 0 1.32-.38 1.68-.77.38.39.95.77 1.67.77.72 0 1.32-.38 1.68-.77.37.39.95.77 1.74.77 1.1 0 1.77-1.15 1.77-2.15V3.6c-.02-.5-2.08-1.64-3.13-2.26a22.5 22.5 0 0 0-14.74 0zM10 9.23a1.04 1.04 0 1 1 0-2.08 1.04 1.04 0 0 1 0 2.08zm5.02 0a1.04 1.04 0 1 1 0-2.08 1.04 1.04 0 0 1 0 2.08z"/>
                             </svg>
-                        </div>
-                        <div>
-                            <h4>itch.io</h4>
-                            <a href="https://sheikh-mustafeedh-ahmed.itch.io" target="_blank" rel="noopener">View all games</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2026 Sheikh Mustafeedh Ahmed. All rights reserved.</p>
-                <p>Built with passion for game development.</p>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="brand-frame">SMA</span>
+                <p>Sheikh Mustafeedh Ahmed<br><span>Gameplay Systems Programmer</span></p>
             </div>
+            <p class="footer-note mono">&copy; 2026 · Built with passion for game development.</p>
+            <a href="#hero" class="footer-top mono">Back to top <span>&uarr;</span></a>
         </div>
     </footer>
 
-    <!-- Video Modal -->
+    <!-- Video modal -->
     <div id="video-modal" class="video-modal">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div class="modal-content brackets">
+            <div class="modal-head mono"><span>// trailer playback</span><button class="modal-close" aria-label="Close modal">&times;</button></div>
             <div class="video-container">
                 <iframe id="video-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="js/three-scene.js"></script>
-    <script src="js/theme-toggle.js"></script>
-    <script src="js/contact-form.js"></script>
-    <script src="js/animations.js?v=2"></script>
-    <script src="js/main.js?v=2"></script>
+    <script src="js/three-scene.js?v=3"></script>
+    <script src="js/theme-toggle.js?v=3"></script>
+    <script src="js/contact-form.js?v=3"></script>
+    <script src="js/animations.js?v=3"></script>
+    <script src="js/main.js?v=3"></script>
 </body>
 </html>

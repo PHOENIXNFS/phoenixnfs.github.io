@@ -1,346 +1,192 @@
-/* ========================================
-   Animation Classes
-   ======================================== */
+/* ============================================================
+   MOTION & HUD MICRO-INTERACTIONS
+   ============================================================ */
 
-/* Initial states for GSAP animations */
-.hero-greeting,
-.hero-name,
-.hero-title,
-.hero-description,
+/* ---------- Keyframes ---------- */
+@keyframes ping {
+    0%   { box-shadow: 0 0 0 0 var(--glow); opacity: 1; }
+    70%  { box-shadow: 0 0 0 7px rgba(200, 255, 69, 0); opacity: 0.9; }
+    100% { box-shadow: 0 0 0 0 rgba(200, 255, 69, 0); opacity: 1; }
+}
+
+@keyframes blink {
+    0%, 49%  { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+@keyframes sweep {
+    0%   { transform: translateY(-110%); }
+    100% { transform: translateY(110%); }
+}
+
+@keyframes boot-in {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes boot-line {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    42% { opacity: 1; }
+    44% { opacity: 0.55; }
+    46% { opacity: 1; }
+    72% { opacity: 0.75; }
+    74% { opacity: 1; }
+}
+
+/* ---------- Hero boot sequence ---------- */
+.hero-kicker-anim,
+.hero-name span,
+.hero-role,
+.hero-desc,
 .hero-cta,
-.hero-social {
-    opacity: 0;
-    transform: translateY(30px);
+.hero-social,
+.player-card {
+    animation: boot-in 0.75s var(--ease) both;
 }
 
-.section-title,
-.section-subtitle {
-    opacity: 0;
-    transform: translateY(30px);
-}
+.hero-name span:nth-child(1) { animation-delay: 0.06s; }
+.hero-name span:nth-child(2) { animation-delay: 0.12s; }
+.hero-name span:nth-child(3) { animation-delay: 0.18s; }
+.hero-role   { animation-delay: 0.26s; }
+.hero-desc   { animation-delay: 0.32s; }
+.hero-cta    { animation-delay: 0.38s; }
+.hero-social { animation-delay: 0.44s; }
+.player-card { animation-delay: 0.3s; }
 
-.about-text p,
-.skill-item {
-    opacity: 0;
-    transform: translateY(30px);
-}
+.hero-name .line-3 { animation-name: boot-in, flicker; animation-duration: 0.75s, 6s; }
 
-.game-card,
-.project-card {
-    opacity: 0;
-    transform: translateY(40px);
-}
-
-.feature-item {
-    opacity: 0;
-    transform: translateX(-30px);
-}
-
-.plugin-demo {
-    opacity: 0;
-    transform: translateX(30px);
-}
-
-.contact-form-container,
-.info-card {
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-/* ========================================
-   CSS Animations (Fallback for no JS)
-   ======================================== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
-    100% {
-        background-position: 200% 0;
-    }
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-@keyframes glow {
-    0%, 100% {
-        box-shadow: 0 0 5px var(--accent-glow);
-    }
-    50% {
-        box-shadow: 0 0 20px var(--accent-glow), 0 0 30px var(--accent-glow);
-    }
-}
-
-/* ========================================
-   Hover Animations
-   ======================================== */
-.game-card {
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.game-card:hover {
-    animation: none;
-}
-
-.skill-item {
-    transition: all 0.3s ease;
-}
-
-.skill-item:hover {
-    animation: none;
-}
-
-/* ========================================
-   Loading Animation
-   ======================================== */
-.loader {
-    position: fixed;
-    inset: 0;
-    background: var(--bg-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3000;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.loader.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.loader-spinner {
-    width: 50px;
-    height: 50px;
-    border: 3px solid var(--border);
-    border-top-color: var(--accent);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* ========================================
-   Scroll-triggered Animation Helpers
-   ======================================== */
+/* ---------- Scroll reveal ---------- */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
+    transform: translateY(26px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    transition-delay: calc(var(--i, 0) * 65ms);
 }
 
-.reveal.active {
+.reveal.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
 }
 
-.reveal-left {
-    opacity: 0;
-    transform: translateX(-30px);
-    transition: all 0.6s ease;
-}
-
-.reveal-left.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.reveal-right {
-    opacity: 0;
-    transform: translateX(30px);
-    transition: all 0.6s ease;
-}
-
-.reveal-right.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* ========================================
-   Particle Effects
-   ======================================== */
-.particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: var(--accent);
-    border-radius: 50%;
-    pointer-events: none;
-    animation: float 3s ease-in-out infinite;
-}
-
-/* ========================================
-   Text Effects
-   ======================================== */
-.gradient-text {
-    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 50%, var(--text-primary) 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 3s linear infinite;
-}
-
-/* ========================================
-   Button Effects
-   ======================================== */
-.btn-primary {
+.reveal-line {
     position: relative;
-    overflow: hidden;
 }
 
-.btn-primary::before {
+.reveal-line::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
+    left: 0;
+    bottom: -14px;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s ease;
+    max-width: 180px;
+    height: 1px;
+    background: var(--acid);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.8s var(--ease) 0.15s;
 }
 
-.btn-primary:hover::before {
-    left: 100%;
-}
+.reveal-line.is-visible::before { transform: scaleX(1); }
 
-/* ========================================
-   Card Hover Effects
-   ======================================== */
-.game-card::before {
+/* ---------- Card hover accents ---------- */
+.mission-card::before,
+.quest-card::before,
+.channel-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--acid), transparent 60%);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.3s ease;
+    transition: transform 0.45s var(--ease);
+    z-index: 4;
 }
 
-.game-card:hover::before {
-    transform: scaleX(1);
+.mission-card:hover::before,
+.quest-card:hover::before,
+.channel-card:hover::before { transform: scaleX(1); }
+
+/* Subtle pressure on press */
+.mission-card:active,
+.quest-card:active { transform: translateY(-2px) scale(0.995); }
+
+/* ---------- Nav active indicator ---------- */
+.nav-links > a.active em { color: var(--acid); }
+
+/* ---------- Loadout meter pulse ---------- */
+.loadout-item.is-visible .li-bar i {
+    box-shadow: 0 0 0 rgba(200, 255, 69, 0);
 }
 
-/* ========================================
-   Navigation Animations
-   ======================================== */
-.navbar {
-    transition: all 0.3s ease;
+/* ---------- Hero terrain shimmer ---------- */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50% 0;
+    width: min(900px, 90vw);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--acid-line), transparent);
+    pointer-events: none;
 }
 
-.navbar.scrolled {
-    padding: 12px 40px;
-    background: rgba(10, 10, 15, 0.95);
+/* ---------- Theme switch ---------- */
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+    transition: none !important;
 }
 
-[data-theme="light"] .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.95);
+/* ---------- Focus states ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--acid);
+    outline-offset: 3px;
 }
 
-/* ========================================
-   Focus States (Accessibility)
-   ======================================== */
-.btn:focus,
-.theme-btn:focus,
-.play-btn:focus,
-a:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-}
-
-/* ========================================
-   Reduced Motion
-   ======================================== */
+/* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-    
-    .hero-greeting,
-    .hero-name,
-    .hero-title,
-    .hero-description,
+    .hero-kicker-anim,
+    .hero-name span,
+    .hero-role,
+    .hero-desc,
     .hero-cta,
     .hero-social,
-    .section-title,
-    .section-subtitle,
-    .about-text p,
-    .skill-item,
-    .game-card,
-    .project-card,
-    .feature-item,
-    .plugin-demo,
-    .contact-form-container,
-    .info-card {
+    .player-card {
+        animation: none;
+    }
+
+    .hero-name .line-3 { animation: none; }
+
+    .reveal {
         opacity: 1;
         transform: none;
+        transition: none;
+    }
+
+    .mission-card:hover,
+    .quest-card:hover,
+    .channel-card:hover { transform: none; }
+
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
     }
 }
