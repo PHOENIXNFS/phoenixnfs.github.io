@@ -445,6 +445,105 @@ ul { list-style: none; }
     gap: 10px;
 }
 
+/* ---------- Resume download menu ---------- */
+.cv-menu { position: relative; }
+
+.cv-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 12px;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--acid);
+    border: 1px solid var(--acid-line);
+    background: var(--acid-soft);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%);
+    transition: color 0.22s var(--ease), background 0.22s var(--ease), border-color 0.22s var(--ease);
+}
+
+.cv-trigger svg { flex: none; }
+
+.cv-trigger .chev {
+    opacity: 0.8;
+    transition: transform 0.25s var(--ease);
+}
+
+.cv-trigger:hover {
+    color: #06090e;
+    background: var(--acid);
+    border-color: var(--acid);
+}
+
+.cv-menu:hover .cv-trigger .chev,
+.cv-menu.open .cv-trigger .chev,
+.cv-menu:focus-within .cv-trigger .chev { transform: rotate(180deg); }
+
+.cv-menu-list {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 6px;
+    background: var(--panel);
+    border: 1px solid var(--line-strong);
+    box-shadow: 0 26px 60px -20px rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), visibility 0.2s;
+    z-index: 1100;
+}
+
+.cv-menu-list::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 0;
+    right: 0;
+    height: 14px;
+}
+
+.cv-menu:hover .cv-menu-list,
+.cv-menu.open .cv-menu-list,
+.cv-menu:focus-within .cv-menu-list {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+}
+
+.cv-item {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 11px 12px;
+    transition: background 0.2s var(--ease);
+}
+
+.cv-item:hover { background: rgba(255, 255, 255, 0.05); }
+
+.cv-fmt {
+    min-width: 40px;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    color: var(--acid);
+}
+
+.cv-desc {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--muted);
+}
+
 .theme-btn {
     display: grid;
     place-items: center;

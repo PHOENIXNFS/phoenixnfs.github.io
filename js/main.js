@@ -28,6 +28,7 @@ class Main {
         this.setupSmoothScroll();
         this.setupScrollEffects();
         this.setupDropdowns();
+        this.setupDownloadMenus();
         this.setupSlideshows();
         this.setupRoleTicker();
         this.setupCursorGlow();
@@ -182,6 +183,47 @@ class Main {
                 dropdown.classList.remove('open');
                 const toggle = dropdown.querySelector('.nav-dropdown-toggle');
                 if (toggle) toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    setupDownloadMenus() {
+        const menus = document.querySelectorAll('.cv-menu');
+        if (!menus.length) return;
+
+        menus.forEach(menu => {
+            const trigger = menu.querySelector('.cv-trigger');
+            if (!trigger) return;
+
+            trigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = menu.classList.toggle('open');
+                trigger.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            menu.querySelectorAll('.cv-menu-list a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.remove('open');
+                    trigger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            menus.forEach(menu => {
+                if (menu.contains(e.target)) return;
+                menu.classList.remove('open');
+                const trigger = menu.querySelector('.cv-trigger');
+                if (trigger) trigger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key !== 'Escape') return;
+            menus.forEach(menu => {
+                menu.classList.remove('open');
+                const trigger = menu.querySelector('.cv-trigger');
+                if (trigger) trigger.setAttribute('aria-expanded', 'false');
             });
         });
     }
